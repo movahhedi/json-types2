@@ -1,23 +1,4 @@
-## Deprecation Notice
-
-As of TypeScript 3.7, it's no longer necessary to use the workaround in this
-package for defining valid JSON structures.
-
-This small snippet is all that is required now:
-
-```typescript
-type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | Record<string, Json>
-  | Json[];
-```
-
----
-
-# json-types
+# json-types2
 
 > JSON TypeScript Definitions
 >
@@ -26,50 +7,38 @@ type Json =
 ## Installation
 
 ```shell
-npm i json-types
+npm install -D json-types2
 ```
 
 ## Usage
 
 ```typescript
-import {
-  Primitive,
-  JSONEntry,
-  JSONArray,
-  JSONMap,
-  JSONData
-} from '../json-types'
+import { JSONValue, JSONValidObject, JSONValidArray, JSONPrimitive, JSONValidMap, JSONValidSet } from "../json-types";
 ```
 
-### Use Case
+### Example
 
 ```typescript
-import {
-  Primitive,
-  JSONEntry,
-  JSONArray,
-  JSONMap,
-  JSONData
-} from '../json-types'
+import { JSONValue, JSONValidObject, JSONValidArray, JSONPrimitive, JSONValidMap, JSONValidSet } from "../json-types";
 
 interface QueryString {
-  [key: string]: Primitive | undefined
+	[key: string]: JSONPrimitive | undefined;
 }
 
-interface APIResponse extends JSONMap {
-  address: {
-    house_no: number
-    street: string
-  }
-  name: string,
-  has_website: false
-  files: JSONArray
-  metadata: JSONEntry
+interface APIResponse extends JSONValidObject {
+	address: {
+		house_no: number;
+		street: string;
+	};
+	name: string;
+	has_website: false;
+	files: JSONValidArray;
+	metadata: JSONValue;
 }
 
-function httpGet (url: string): Promise<JSONData> {
-  return requestPromise(url, {
-    json: true
-  })
+function httpGet(url: string): Promise<JSONValue> {
+	return requestPromise(url, {
+		json: true,
+	});
 }
 ```

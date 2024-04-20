@@ -1,27 +1,25 @@
 {
-  "compilerOptions": {
-    "alwaysStrict": true,
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
-    "lib": ["esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmitHelpers": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "removeComments": true,
-    "strict": true,
-    "target": "es5"
-  },
-  "files": [
-    "index.ts"
-  ],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"alwaysStrict": true,
+		"declaration": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"lib": ["esnext"],
+		"module": "ES2015",
+		"target": "es5",
+		"moduleResolution": "node",
+		"noEmitHelpers": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"preserveConstEnums": true,
+		"removeComments": true,
+		"strict": true
+	},
+	"files": ["index.ts"],
+	"exclude": ["node_modules"]
 }

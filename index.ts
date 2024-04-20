@@ -1,9 +1,13 @@
-export type Primitive = string | number | boolean | null
+export type JSONPrimitive = string | number | boolean | null;
 
-export interface JSONArray extends Array<JSONEntry> {}
-export interface JSONMap {
-  [key: string]: JSONEntry
-}
+export type JSONValue = JSONPrimitive | JSONValidObject | JSONValidArray;
 
-export type JSONEntry = Primitive | JSONArray | JSONMap
-export type JSONData = JSONArray | JSONMap
+export type JSONValidObject = {
+	[key: string]: JSONValue;
+};
+
+export type JSONValidArray = JSONValue[];
+
+export type JSONValidMap = Map<string, JSONValue>;
+
+export type JSONValidSet = Set<JSONValue>;
